@@ -15,4 +15,4 @@ Angel - Database, Skill Tree
 Khalid - User Authentication and UI (federated login, library plug into app/ local login)
 
 ## Requirements
-pip install <pygame>
+"pip install <pygame>"
