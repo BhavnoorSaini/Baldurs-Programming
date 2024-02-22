@@ -16,3 +16,5 @@ Khalid - User Authentication and UI (federated login, library plug into app/ loc
 
 ## Dependencies
 pip install pygame
+
+## Collaborators
