@@ -19,3 +19,4 @@ pip install pygame
 
 ## Collaborators
 Bhavnoor Saini
+Agustin Chavez
