@@ -32,7 +32,7 @@ class Question(Base):
     __tablename__ = 'questions'
     id = Column(Integer, primary_key=True)
     text = Column(String)
-    difficulty = Column(String)
+    category = Column(String)
 
     easy_options = relationship("EasyOption", back_populates="question")
     medium_options = relationship("MediumOption", back_populates="question")
@@ -68,7 +68,7 @@ class HardOption(Base):
 
 # Setting up the database connection and creating a session to interact with the 
 # database using SQLAlchemy
-engine = create_engine('sqlite:///ran.db')
+engine = create_engine('sqlite:///database.db')
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
