@@ -29,6 +29,16 @@ def start_game():
         for enemy in enemies:
             enemy.move()
             enemy.draw()
+            # Calculate distance between player and enemy
+            distance = pygame.math.Vector2(enemy.x, enemy.y).distance_to(player_pos)
+
+            # If distance is less than threshold, draw a red rectangle
+            if distance < 60:  # adjust this value as needed
+                font = pygame.font.Font(None, 30)
+                text = font.render("PRESS E TO ATTACK", True, (255, 255, 255))
+                text_rect = text.get_rect(center=(screen.get_width() // 2, screen.get_height() - 45))
+                pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(screen.get_width() // 2 - 100, screen.get_height() - 70, 200, 50))
+                screen.blit(text, text_rect)
         
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
