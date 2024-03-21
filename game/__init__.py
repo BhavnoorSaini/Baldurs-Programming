@@ -1,8 +1,8 @@
 import pygame
 import random
+from game.enemy import Enemy
 
 # pygame setup
-
 def start_game():
     pygame.init()
     
@@ -11,6 +11,7 @@ def start_game():
     running = True
     dt = 0
 
+    enemies = [Enemy(screen) for _ in range(3)]
     
     player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
     while running:
@@ -25,6 +26,10 @@ def start_game():
         
         pygame.draw.circle(screen, "black", player_pos, 40)
 
+        for enemy in enemies:
+            enemy.move()
+            enemy.draw()
+        
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
             if player_pos.y > 40:
@@ -39,26 +44,8 @@ def start_game():
             if player_pos.x < screen.get_width() - 40:
                 player_pos.x += 500 * dt
 
-        # Define a list to store the positions of the circles
-        circle_positions = []
-
-        # Generate random positions for the circles
-        for _ in range(3):
-            circle_pos = pygame.Vector2(random.randint(40, screen.get_width() - 40), random.randint(40, screen.get_height() - 40))
-            circle_positions.append(circle_pos)
-
-        # Move and draw the circles
-        for circle_pos in circle_positions:
-            # Move the circle slowly
-            circle_pos.x += random.uniform(-1, 1) * 0.1 * dt
-            circle_pos.y += random.uniform(-1, 1) * 0.1 * dt
-
-            # Ensure the circle stays within the window
-            circle_pos.x = max(40, min(circle_pos.x, screen.get_width() - 40))
-            circle_pos.y = max(40, min(circle_pos.y, screen.get_height() - 40))
-
-            # Draw the circle
-            pygame.draw.circle(screen, "red", circle_pos, 40)
+    
+        
         
         # flip() the display to put your work on screen
         pygame.display.flip()
