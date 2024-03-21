@@ -17,6 +17,8 @@
 # and pip install flask-sqlalchemy
 # You must have SQLTools, SQLTools SQLite extensions installed which can be found
 # on the tool bar in VScode
+# When all of this is installed make sure the python version you downloaded
+# sqlalchemy on is the one selected in VScode bottom middle
 #---------------------------------------------------------------------------------
 
 
