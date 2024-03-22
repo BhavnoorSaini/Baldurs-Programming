@@ -3,6 +3,7 @@ from tkinter import messagebox
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from game import start_game
+from database import Session
 
 
 # Creates a base class for declarative class definitions in SQLAlchemy.
