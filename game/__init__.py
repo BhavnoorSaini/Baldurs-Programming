@@ -2,6 +2,7 @@ import pygame
 import os
 from game.enemy import sharkEnemy, shark2Enemy
 from game.character import XP
+from game.merchant import Merchant
 
 # pygame setup
 def start_game():
@@ -85,11 +86,15 @@ def start_game():
     
         if player_pos.x < 700 and player_pos.x > 600 and player_pos.y < 420 and player_pos.y > 270:
             font = pygame.font.Font(None, 28)
-            text = font.render("PRESS Q TO SHOP AT THE MERCHANT", True, (255, 255, 255))
+            text = font.render("HOLD Q TO SHOP AT THE MERCHANT", True, (255, 255, 255))
             text_rect = text.get_rect(center=(screen.get_width() // 2, 600))
-            rect_width = text.get_width() + 20  # Add 20 pixels padding
+            rect_width = text.get_width() + 20  
             pygame.draw.rect(screen, (0, 0, 255), pygame.Rect(screen.get_width() // 2 - rect_width // 2, 575, rect_width, 50))
             screen.blit(text, text_rect)
+            if keys[pygame.K_q]:
+                Merchant.draw_merchant(Merchant)
+            
+            
         # flip() the display to put your work on screen
         pygame.display.flip()
 
