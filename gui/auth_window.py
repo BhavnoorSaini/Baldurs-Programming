@@ -27,7 +27,9 @@ session = Session()
 
 def start_gui():
     root = tk.Tk()
-    root.geometry('300x200')
+    root.geometry('1280x720')
+    root.title("Baldurs Programming")
+    root.configure(bg='black')  # Set the background color of the window to black
 
     def register_btn_clicked():
         username = username_entry.get()
@@ -61,20 +63,26 @@ def start_gui():
         root.destroy() # Close the login window
         start_game()
 
-    username_label = tk.Label(root, text="Username")
-    username_label.pack()
-    username_entry = tk.Entry(root)
-    username_entry.pack()
+    title_label = tk.Label(root, text="BALDURS PROGRAMMING", bg='black', fg='white', font=("verdana", 24))
+    title_label.place(x=640, y=100, anchor='center')            # Place the title label at the center of the window
+    
+    username_label = tk.Label(root, text="Username", bg='black', fg='white')
+    username_label.place(x=640, y=200, anchor='center')
 
-    password_label = tk.Label(root, text="Password")
-    password_label.pack()
-    password_entry = tk.Entry(root, show='*')
-    password_entry.pack()
+    username_entry = tk.Entry(root, bg='grey', fg='white')
+    username_entry.place(x=640, y=230, anchor='center')
+
+    password_label = tk.Label(root, text="Password", bg='black', fg='white')
+    password_label.place(x=640, y=260, anchor='center')
+ 
+    password_entry = tk.Entry(root, show='*', bg='grey', fg='white')
+    password_entry.place(x=640, y=290, anchor='center')
 
     register_btn = tk.Button(root, text="Register", command=register_btn_clicked)
-    register_btn.pack()
+    register_btn.place(x=640, y=320, anchor='center')
 
     login_btn = tk.Button(root, text="Login", command=login_btn_clicked)
-    login_btn.pack()
+    login_btn.place(x=640, y=350, anchor='center')
+  
 
     root.mainloop()
