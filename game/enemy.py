@@ -12,7 +12,7 @@ class Enemy:
         self.direction = random.randint(0, 360)
 
     def draw(self):
-        image_path = os.path.join(os.path.dirname(__file__), "shark", "scary2_shark-removebg-preview.png")
+        image_path = os.path.join(os.path.dirname(__file__), "assets", "scary2_shark-removebg-preview.png")
         shark_image = pygame.image.load(image_path)
         shark_image = pygame.transform.scale(shark_image, (shark_image.get_width() // 3, shark_image.get_height() // 3))
         image_width, image_height = shark_image.get_size()
