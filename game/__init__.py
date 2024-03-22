@@ -13,8 +13,8 @@ def start_game():
     running = True
     dt = 0
 
-    sharkEnemies = [sharkEnemy(screen) for _ in range(2)]
-    shark2Enemies = [shark2Enemy(screen) for _ in range(2)]
+    enemies1 = [sharkEnemy(screen) for _ in range(2)]
+    enemies2 = [shark2Enemy(screen) for _ in range(2)]
     
     map_path = os.path.join(os.path.dirname(__file__), "assets", "Final Map.jpg")
     background = pygame.image.load(map_path)
@@ -38,11 +38,11 @@ def start_game():
         
         pygame.draw.circle(screen, "black", player_pos, 40)
 
-        for sharkEnemy in sharkEnemies:
-            sharkEnemy.move()
-            sharkEnemy.draw()
+        for enemy in enemies1:
+            enemy.move()
+            enemy.draw()
             # Calculate distance between player and enemy
-            distance = pygame.math.Vector2(sharkEnemy.x, sharkEnemy.y).distance_to(player_pos)
+            distance = pygame.math.Vector2(enemy.x, enemy.y).distance_to(player_pos)
 
             # If distance is less than threshold, draw a red rectangle
             if distance < 60:  # adjust this value as needed
@@ -51,11 +51,11 @@ def start_game():
                 text_rect = text.get_rect(center=(screen.get_width() // 2, screen.get_height() - 45))
                 pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(screen.get_width() // 2 - 100, screen.get_height() - 70, 200, 50))
                 screen.blit(text, text_rect)
-        for shark2Enemy in shark2Enemies:
-            shark2Enemy.move()
-            shark2Enemy.draw()
+        for enemy in enemies2:
+            enemy.move()
+            enemy.draw()
             # Calculate distance between player and enemy
-            distance = pygame.math.Vector2(shark2Enemy.x, shark2Enemy.y).distance_to(player_pos)
+            distance = pygame.math.Vector2(enemy.x, enemy.y).distance_to(player_pos)
 
             # If distance is less than threshold, draw a red rectangle
             if distance < 60:  # adjust this value as needed
@@ -90,7 +90,6 @@ def start_game():
             rect_width = text.get_width() + 20  # Add 20 pixels padding
             pygame.draw.rect(screen, (0, 0, 255), pygame.Rect(screen.get_width() // 2 - rect_width // 2, 575, rect_width, 50))
             screen.blit(text, text_rect)
-            
         # flip() the display to put your work on screen
         pygame.display.flip()
 
