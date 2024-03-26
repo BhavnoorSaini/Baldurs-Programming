@@ -10,6 +10,8 @@ def start_game():
     
     screen = pygame.display.set_mode((1280, 720))
     pygame.display.set_caption("Baldurs Programming")
+    icon = pygame.image.load(os.path.join(os.path.dirname(__file__), "assets", "hacket-removebg-preview.png"))
+    pygame.display.set_icon(icon)
     clock = pygame.time.Clock()
     running = True
     dt = 0
@@ -71,22 +73,22 @@ def start_game():
         
         # Draw XP bar
         xp_bar = XP(screen)
-        xp_bar.draw(100)        # can either swap to the 0%, 50%, 75%, or 100% xp bar
+        xp_bar.draw(50)        # can either swap to the 0%, 50%, 75%, or 100% xp bar
         
         # Handle player movement
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
             if player_pos.y > 40:
-                player_pos.y -= 500 * dt
+                player_pos.y -= 300 * dt
         if keys[pygame.K_s]:
             if player_pos.y < screen.get_height() - 40:
-                player_pos.y += 500 * dt
+                player_pos.y += 300 * dt
         if keys[pygame.K_a]:
             if player_pos.x > 40:
-                player_pos.x -= 500 * dt
+                player_pos.x -= 300 * dt
         if keys[pygame.K_d]:
             if player_pos.x < screen.get_width() - 40:
-                player_pos.x += 500 * dt
+                player_pos.x += 300 * dt
     
         # Check if player is near the merchant
         if player_pos.x < 700 and player_pos.x > 600 and player_pos.y < 420 and player_pos.y > 270:
