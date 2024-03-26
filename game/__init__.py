@@ -3,7 +3,7 @@ import os
 from game.enemy import sharkEnemy, shark2Enemy
 from game.character import XP
 from game.merchant import Merchant
-from game.attack import Battle
+from game.attack import Battle 
 
 # pygame setup
 def start_game():
@@ -37,6 +37,10 @@ def start_game():
                 if event.type == pygame.QUIT:
                     running = False
             battle.draw_battle(screen)
+            # Print the mouse location
+            mouse_pos = pygame.mouse.get_pos()
+            battle.draw_buttons(screen)
+            print("Mouse Location:", mouse_pos)
             pygame.display.flip()
             clock.tick(60)
     
@@ -124,7 +128,7 @@ def start_game():
             
         # Update the display
         pygame.display.flip()
-
+        
         # Limit FPS to 60
         # dt is delta time in seconds since last frame, used for framerate-independent physics.
         dt = clock.tick(60) / 1000
