@@ -3,6 +3,7 @@ import os
 from game.enemy import sharkEnemy, shark2Enemy
 from game.character import XP
 from game.merchant import Merchant
+from game.attack import Battle
 
 # pygame setup
 def start_game():
@@ -27,6 +28,17 @@ def start_game():
     def draw_background(backgrond):
         size = pygame.transform.scale(backgrond, (screen.get_width(), screen.get_height()))
         screen.blit(size, (0, 0))
+        
+    def start_battle(screen, clock):
+        battle = Battle()
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+            battle.draw_battle(screen)
+            pygame.display.flip()
+            clock.tick(60)
     
     player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
     while running:
@@ -56,6 +68,11 @@ def start_game():
                 text_rect = text.get_rect(center=(screen.get_width() // 2, screen.get_height() - 45))
                 pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(screen.get_width() // 2 - 100, screen.get_height() - 70, 200, 50))
                 screen.blit(text, text_rect)
+                if keys[pygame.K_e]:
+                    #battle = Battle()
+                    #battle.draw_battle(screen)
+                    start_battle(screen, clock)
+                    
         
         for enemy in enemies2:
             enemy.move()
@@ -70,6 +87,10 @@ def start_game():
                 text_rect = text.get_rect(center=(screen.get_width() // 2, screen.get_height() - 45))
                 pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(screen.get_width() // 2 - 100, screen.get_height() - 70, 200, 50))
                 screen.blit(text, text_rect)
+                if keys[pygame.K_e]:
+                    #battle = Battle()
+                    #battle.draw_battle(screen)
+                    start_battle(screen, clock)
         
         # Draw XP bar
         xp_bar = XP(screen)
