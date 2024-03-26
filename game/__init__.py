@@ -73,7 +73,7 @@ def start_game():
         
         # Draw XP bar
         xp_bar = XP(screen)
-        xp_bar.draw(100)        # can either swap to the 0%, 50%, 75%, or 100% xp bar
+        xp_bar.draw(50)        # can either swap to the 0%, 50%, 75%, or 100% xp bar
         
         # Handle player movement
         keys = pygame.key.get_pressed()
