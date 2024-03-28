@@ -1,7 +1,5 @@
 #---------------------------------------------------------------------------------
 # INTRODUCTION
-# Author: Angel Montes
-# NCC CSCE 306 - Baldurs Gate Question DataBase
 # Description: SQLalchemy script that creates 4 tables. Question table displays
 # all questions with a column for the id of the question, a column for the question
 # itself, a column for its difficulty (easy, medium, hard). Then in the other 3
