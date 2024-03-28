@@ -26,6 +26,9 @@ class Merchant:
         button_color = (0, 0, 0)  # Black color
         pygame.draw.rect(pygame.display.get_surface(), button_color, (screen_width // 2 + 250, screen_height // 2 - 50, button_width, button_height))
         pygame.draw.rect(pygame.display.get_surface(), button_color, (screen_width // 2 + 250, screen_height // 2 + 50, button_width, button_height))
+        button1 = pygame.Rect(screen_width // 2 + 250, screen_height // 2 - 50, button_width, button_height)
+        button2 = pygame.Rect(screen_width // 2 + 250, screen_height // 2 + 50, button_width, button_height)
+
 
         # Draw the "+" symbol
         plus_symbol = font.render("+", True, text_color)
@@ -65,3 +68,14 @@ class Merchant:
         text_x = image_x + new_width + 10
         text_y = image_y + (new_height - text.get_height()) // 2
         pygame.display.get_surface().blit(text, (text_x, text_y))
+        
+        # Clicks the buttons
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                if button1.collidepoint(mouse_pos):
+                    print("Button 1")# Perform action for button 1
+                    pass
+                elif button2.collidepoint(mouse_pos):
+                    print("Button 2")# Perform action for button 2
+                    pass
