@@ -1,9 +1,9 @@
 import pygame
 import os
-from game.enemy import sharkEnemy, shark2Enemy
-from game.character import XP
-from game.merchant import Merchant
-from game.attack import Battle 
+from game.enemy import *
+from game.character import *
+from game.merchant import *
+from game.attack import * 
 
 # pygame setup
 def start_game():
