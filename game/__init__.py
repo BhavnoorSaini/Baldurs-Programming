@@ -36,11 +36,14 @@ def start_game():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                
             battle.draw_battle(screen)
-            # Print the mouse location
-            mouse_pos = pygame.mouse.get_pos()
             battle.draw_buttons(screen)
-            print("Mouse Location:", mouse_pos)
+            # Print the mouse location
+            #mouse_pos = pygame.mouse.get_pos()
+            battle.draw_buttons(screen)
+            battle.draw_enemy(screen)
+            #print("Mouse Location:", mouse_pos)
             pygame.display.flip()
             clock.tick(60)
     
@@ -73,8 +76,6 @@ def start_game():
                 pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(screen.get_width() // 2 - 100, screen.get_height() - 70, 200, 50))
                 screen.blit(text, text_rect)
                 if keys[pygame.K_e]:
-                    #battle = Battle()
-                    #battle.draw_battle(screen)
                     start_battle(screen, clock)
                     
         
@@ -92,8 +93,6 @@ def start_game():
                 pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(screen.get_width() // 2 - 100, screen.get_height() - 70, 200, 50))
                 screen.blit(text, text_rect)
                 if keys[pygame.K_e]:
-                    #battle = Battle()
-                    #battle.draw_battle(screen)
                     start_battle(screen, clock)
         
         # Draw XP bar
