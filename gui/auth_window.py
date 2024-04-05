@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from game import start_game
 from database import Session
-from tkinter import PhotoImage
+from PIL import Image, ImageTk
 
 # Creates a base class for declarative class definitions in SQLAlchemy.
 Base = declarative_base()
@@ -30,9 +30,12 @@ def start_gui():
     root.title("Baldurs Programming")
 
     # Add a background image 
-    background_image = PhotoImage(file="gui/background.png")
+    background_image = Image.open("gui/background.png")
+    resized_image = background_image.resize((1280, 720))
+    background_image = ImageTk.PhotoImage(resized_image)
     background_label = tk.Label(root, image=background_image)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    
 
     def register_btn_clicked():
         username = username_entry.get()
@@ -46,7 +49,7 @@ def start_gui():
         if login(username, password):
             messagebox.showinfo("Login info", "Logged in Successfully")
             on_successful_login()
-        else:
+        else: 
             messagebox.showinfo("Login info", "Invalid username or password")
 
     def register(username, password):
