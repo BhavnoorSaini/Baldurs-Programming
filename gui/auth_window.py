@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from game import start_game
 from database import Session
-
+from tkinter import PhotoImage
 
 # Creates a base class for declarative class definitions in SQLAlchemy.
 Base = declarative_base()
@@ -24,12 +24,15 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-
 def start_gui():
     root = tk.Tk()
     root.geometry('1280x720')
     root.title("Baldurs Programming")
-    root.configure(bg='black')  # Set the background color of the window to black
+
+    # Add a background image 
+    background_image = PhotoImage(file="gui/background.png")
+    background_label = tk.Label(root, image=background_image)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
     def register_btn_clicked():
         username = username_entry.get()
@@ -83,6 +86,8 @@ def start_gui():
 
     login_btn = tk.Button(root, text="Login", command=login_btn_clicked)
     login_btn.place(x=640, y=350, anchor='center')
-  
 
     root.mainloop()
+
+
+
