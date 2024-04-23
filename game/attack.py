@@ -18,7 +18,7 @@ class Battle:
         import pygame.font
 
 
-        font = pygame.font.Font(None, 30)  # Choose a font and font size
+        font = pygame.font.Font(pygame.font.get_default_font(), 15)  # Choose the default font and font size
 
         
         for i in range(button_count):
@@ -63,10 +63,16 @@ class Battle:
                             print("Domain Expansion (Hard)")
                         elif i == 3:
                             print("Run")
+                            return 1
+                            
         
         
     
     def draw_enemy(self, screen):
+        player_path = os.path.join(os.path.dirname(__file__), "assets", "player.png")
+        player = pygame.image.load(player_path)
+        player = pygame.transform.scale(player, (200, 200))
+        screen.blit(player, (260, 250))
         enemy_path = os.path.join(os.path.dirname(__file__), "assets", "scary_shark-removebg-preview.png")
         enemy = pygame.image.load(enemy_path)
         enemy = pygame.transform.scale(enemy, (200, 200))

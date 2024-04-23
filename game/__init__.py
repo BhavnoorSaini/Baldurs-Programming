@@ -41,7 +41,8 @@ def start_game():
             battle.draw_buttons(screen)
             # Print the mouse location
             #mouse_pos = pygame.mouse.get_pos()
-            battle.draw_buttons(screen)
+            if battle.draw_buttons(screen) == 1:
+                running = False
             battle.draw_enemy(screen)
             #print("Mouse Location:", mouse_pos)
             pygame.display.flip()
@@ -59,7 +60,10 @@ def start_game():
         draw_background(background)
         
         # Draw player character
-        pygame.draw.circle(screen, "black", player_pos, 40)
+        player_image = pygame.image.load(os.path.join(os.path.dirname(__file__), "assets", "player.png"))
+        player_image = pygame.transform.scale(player_image, (150, 150))  # Adjust the size as needed
+        player_rect = player_image.get_rect(center=player_pos)
+        screen.blit(player_image, player_rect)
 
         # Handle enemy interactions
         for enemy in enemies1:
