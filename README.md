@@ -16,5 +16,5 @@ pip install flask-sqlalchemy
 
 pip install PIL
 
-## Collaborators
+## Developers
 Bhavnoor Saini, Santiago Ramirez, Angel Montes, Chris S, Dylan, Khalid
