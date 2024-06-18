@@ -8,17 +8,6 @@
 # itself and a question_id to see which question that choice belongs too.
 #---------------------------------------------------------------------------------
 
-#---------------------------------------------------------------------------------
-# HOW TO USE
-# In terminal check to see if python is downloaded on your computer using
-# python --version or python3 --version for mac. Then run pip install sqlalchemy
-# and pip install flask-sqlalchemy
-# You must have SQLTools, SQLTools SQLite extensions installed which can be found
-# on the tool bar in VScode
-# When all of this is installed make sure the python version you downloaded
-# sqlalchemy on is the one selected in VScode bottom middle
-#---------------------------------------------------------------------------------
-
 
 # Imports necessary modules and functions from SQLAlchemy library
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
